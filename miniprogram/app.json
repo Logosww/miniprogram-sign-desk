@@ -10,7 +10,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "写字台",
+    "navigationBarTitleText": "智能签名台",
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {

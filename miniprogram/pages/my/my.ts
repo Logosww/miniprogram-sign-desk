@@ -35,7 +35,7 @@ Page({
       isToProfile
       ? `${url}?${
           Object.entries(this.data.userInfo)
-          .map(([key, value]) => `${key}=${value}`).join('&')
+          .map(([key, value]) => `${key}=${value ?? ''}`).join('&')
         }`
       : url;
     let _this = this;
