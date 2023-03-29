@@ -1,0 +1,27 @@
+<!--pages/my/my.wxml-->
+<t-message id="t-message" />
+<view class="container">
+  <t-image class="my-background" mode="aspectFill" src="{{ backgroundImage }}" />
+  <view class="my-card">
+    <view class="my-card-header scheme-1" wx:if="{{ isLogin }}">
+      <t-avatar class="my-card-header__avatar" size="{{ avatarSize }}" image="{{ userInfo.avatar }}" />
+      <text class="my-card-header__nickname">{{ userInfo.nickname }}</text>
+    </view>
+    <view class="my-card-header scheme-1" wx:else>
+      <t-avatar
+       class="my-card-header__avatar" 
+       image="https://signdesk-1308682615.cos.ap-shanghai.myqcloud.com/wxUserDefault.png" 
+       size="{{ avatarSize }}" 
+       bindtap="login"
+      />
+      <text class="my-card-header__nickname">点击头像登录</text>
+    </view>
+    <view class="my-card-body">
+      <t-cell-group theme="card" bindtap="navigateToPage" >
+        <t-cell title="编辑资料" leftIcon="edit" data-url="/pages/profile/profile" hover arrow />
+        <t-cell title="设置" leftIcon="setting" data-url="/pages/setting/setting" hover arrow />
+        <t-cell title="关于" leftIcon="info-circle" data-url="/pages/about/about" hover arrow />
+      </t-cell-group>
+    </view>
+  </view>
+</view>

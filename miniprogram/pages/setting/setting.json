@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-empty": "/my-empty/my-empty"
+  },
+  "navigationBarTitleText": "设置"
+}

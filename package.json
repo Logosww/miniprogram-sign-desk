@@ -1,0 +1,16 @@
+{
+  "name": "miniprogram-ts-less-quickstart",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "miniprogram-api-typings": "^3.9.0"
+  },
+  "dependencies": {
+    "cos-wx-sdk-v5": "^1.4.10",
+    "tdesign-miniprogram": "^1.0.4"
+  }
+}

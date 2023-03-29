@@ -1,0 +1,4 @@
+<!--pages/bind-phone/bind-phone.wxml-->
+<view class="container">
+  <my-empty></my-empty>
+</view>

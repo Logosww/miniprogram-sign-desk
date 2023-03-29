@@ -1,0 +1,23 @@
+/* pages/profile/profile.wxss */
+.pf-avatar {
+  position: relative;
+  display: block;
+  width: 128px;
+  margin: 20px auto;
+
+  .pf-avatar__image {
+    width: 128px;
+    height: 128px;
+    // border: 2px solid #ffe;
+  }
+
+  .pf-avatar__icon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.t-cell__note {
+  color: #000000e6 !important;
+}

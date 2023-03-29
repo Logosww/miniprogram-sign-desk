@@ -1,0 +1,71 @@
+/* pages/my/my.wxss */
+.container {
+  padding: 0;
+
+  .my-background {
+    position: fixed;
+    width: 100%;
+    height: 421.875rpx;
+  }
+
+  .my-card {
+    position: relative;
+    top: 371.875rpx;
+    background-color: rgb(250,250,250);
+    width: 100%;
+    height: 1316.125rpx;
+    filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.18));
+    box-sizing: border-box;
+    border-radius: 18px 18px 0 0;
+    padding: 0 50rpx;
+
+
+    .my-card-header {
+      width: 100%;
+
+      .my-card-header__avatar {
+        border: 3px solid #fff;
+        border-radius: 50%;
+      }
+
+      .my-card-header__nickname {
+        font-weight: 800;
+        font-size: 20px;
+        margin-left: 20rpx;   
+      }
+
+      &.scheme-1 {
+        margin-bottom: -40px;
+        transform: translateY(-60%);
+
+        .my-card-header__nickname {
+          line-height: 80px;
+          color: #fff;
+          text-shadow: 2px 2px 5px #666;
+        }
+      }
+
+      &.scheme-2 {
+        margin-bottom: -20px;
+
+        .my-card-header__avatar {
+          transform: translateY(-40%);
+        }
+
+        .my-card-header__nickname {
+          line-height: 44px;
+        }
+      }
+    }
+
+    .my-card-body {
+      position: relative;
+
+      .t-cell-group {
+        margin: 0;
+        border-radius: 18px;
+        border: 1px solid #eee;
+      }
+    }
+  }
+}
