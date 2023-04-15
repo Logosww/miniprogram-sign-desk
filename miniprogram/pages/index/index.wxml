@@ -1,5 +1,54 @@
 <!--index.wxml-->
-<t-message id="t-message" />
-<view class="container">
-  <my-empty />
-</view>
+<page-meta page-style="{{ pageStyle }}">
+  <t-message id="t-message" />
+  <t-dialog
+    visible="{{ showConfirm }}"
+    title="确认删除"
+    content="删除签名后不可恢复，确认删除吗？"
+    confirm-btn="确定"
+    cancel-btn="取消"
+    bind:confirm="doDelete"
+    bind:cancel="handleCancelDialog"
+  >
+    <t-image slot="top" style="width: 100%;" mode="aspectFill" src="{{ signItems[toDelItemIndex].picUrl }}" />
+  </t-dialog>
+  <t-image-viewer
+    visible="{{ showImageViewer }}"
+    images="{{ imageToView }}"
+    bind:close="handleCloseImageViewer"
+    closeBtn
+  ></t-image-viewer>
+  <t-pull-down-refresh
+    value="{{baseRefresh.value}}"
+    loadingProps="{{loadingProps}}"
+    loadingTexts="{{['下拉刷新', '松手刷新', '正在刷新', '刷新完成']}}"
+    bind:refresh="onPullDownRefresh"
+    bind:scroll="onScroll"
+    class="wrapper"
+  >
+    <view class="skeleton" wx:if="{{ isLoading }}">
+      <my-sign-item />
+      <my-sign-item />
+      <my-sign-item />
+      <my-sign-item />
+      <my-sign-item />
+    </view>
+    <view class="content" wx:else>
+      <view class="empty" wx:if="{{ !signItems.length }}">
+        <my-empty type="empty" />
+      </view>
+      <view wx:else>
+        <my-sign-item 
+          wx:for="{{ signItems }}"
+          wx:for-index="idx"
+          wx:key="idx"
+          item="{{ item }}"
+          index="{{ idx }}"
+          bind:delete="handleDelete"
+          bind:view-image="handleViewImage"
+        />
+      </view>
+    </view>
+  </t-pull-down-refresh>
+  <t-fab style="bottom: calc(178rpx + var(--linebar-height)); right: 50rpx;" icon="add" bind:click="toAddSign" />
+</page-meta>

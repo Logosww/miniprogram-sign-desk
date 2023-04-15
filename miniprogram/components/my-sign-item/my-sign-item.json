@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-skeleton": "tdesign-miniprogram/skeleton/skeleton",
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-swipe-cell": "tdesign-miniprogram/swipe-cell/swipe-cell"
+  }
+}

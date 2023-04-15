@@ -1,7 +1,6 @@
 {
   "usingComponents": {
     "t-image": "tdesign-miniprogram/image/image",
-    "t-button": "tdesign-miniprogram/button/button",
     "t-input": "tdesign-miniprogram/input/input",
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-cell-group": "tdesign-miniprogram/cell-group/cell-group"

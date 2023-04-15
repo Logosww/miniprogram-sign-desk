@@ -5,7 +5,8 @@
     "pages/profile/profile",
     "pages/setting/setting",
     "pages/about/about",
-    "pages/bind-phone/bind-phone"
+    "pages/bind-phone/bind-phone",
+    "pages/add-sign/add-sign"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,7 +17,9 @@
   "usingComponents": {
     "t-message": "tdesign-miniprogram/message/message",
     "t-toast": "tdesign-miniprogram/toast/toast",
-    "t-icon": "tdesign-miniprogram/icon/icon"
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-loading": "tdesign-miniprogram/loading/loading",
+    "t-button": "tdesign-miniprogram/button/button"
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {

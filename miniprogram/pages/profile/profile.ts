@@ -61,7 +61,7 @@ Page({
       nickname: this.data.nickname,
       introduction: this.data.introduction
     });
-    if(!data) return Message.error({
+    if(data !== true) return Message.error({
       context: this,
       offset: [20, 32],
       duration: 4000,

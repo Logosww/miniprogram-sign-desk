@@ -1,0 +1,63 @@
+/* components/my-sign-item.wxss */
+.my-sign-item {
+  padding-bottom: 40rpx;
+
+  .my-sign-item__time {
+    font-size: 40rpx;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+
+    .my-sign-item__bar {
+      height: 44rpx;
+      width: 10rpx;
+      background-color: #0052d9;
+      border-radius: 40rpx;
+      margin-right: 20rpx;
+    }
+  }
+
+  .my-sign-item__images {
+    margin: 20rpx 0;
+
+    .my-sign-item__image {
+      width: 210rpx;
+      height: 210rpx;
+      box-sizing: border-box;
+      border-radius: 24rpx;
+      border: 1px solid #E4E7ED;
+    }
+  }
+
+  .my-sign-item__address {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 24rpx;
+  }
+
+  .my-sign-item__bottom {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    height: 2rpx;
+    padding: 0 80rpx;
+    margin-top: 40rpx;
+
+    .my-sign-item__bottom-inner {
+      background-color: #E4E7ED;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .my-sign-item-right-operation {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e34d59;
+    color: #fff;
+    height: 100%;
+    width: 120rpx;
+  }
+}

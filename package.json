@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "cos-wx-sdk-v5": "^1.4.10",
-    "tdesign-miniprogram": "^1.0.4"
+    "tdesign-miniprogram": "^1.1.1"
   }
 }

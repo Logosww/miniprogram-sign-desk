@@ -1,4 +1,4 @@
 <!--pages/setting/setting.wxml-->
 <view class="container">
-  <my-empty></my-empty>
+  <my-empty type="developing"></my-empty>
 </view>

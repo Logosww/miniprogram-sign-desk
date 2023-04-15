@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "t-upload": "tdesign-miniprogram/upload/upload"
+  },
+  "navigationBarTitleText": "新增签名"
+}

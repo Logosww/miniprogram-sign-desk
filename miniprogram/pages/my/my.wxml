@@ -6,6 +6,7 @@
     <view class="my-card-header scheme-1" wx:if="{{ isLogin }}">
       <t-avatar class="my-card-header__avatar" size="{{ avatarSize }}" image="{{ userInfo.avatar }}" />
       <text class="my-card-header__nickname">{{ userInfo.nickname }}</text>
+      <text class="my-card-header__introduction">{{ userInfo.introduction }}</text>
     </view>
     <view class="my-card-header scheme-1" wx:else>
       <t-avatar

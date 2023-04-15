@@ -63,3 +63,9 @@ export const put = (
   body?: RequestBody,
   headers?: Record<string, any>
 ) => request(url, 'PUT', body, headers);
+
+export const del = (
+  url: string,
+  body?: RequestBody,
+  headers?: Record<string, any>
+) => request(url, 'DELETE', body, headers);

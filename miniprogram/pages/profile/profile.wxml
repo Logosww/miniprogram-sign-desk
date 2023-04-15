@@ -9,6 +9,6 @@
   <t-cell title="手机" note="{{ phone }}" bindtap="toBindPhone" hover arrow />
   <t-input label="简介" align="right" placeholder="请输入" maxcharacter="{{50}}" model:value="{{ introduction }}" />
 </t-cell-group>
-<view style="padding: 0 16px; margin-top: 40px;">
-  <t-button theme="primary" size="large" shape="round" bindtap="saveProfile" block>保存资料</t-button>
+<view style="padding: 0 60rpx; margin-top: 80rpx;">
+  <t-button icon="check" theme="primary" size="large" shape="round" bindtap="saveProfile" block>保存资料</t-button>
 </view>

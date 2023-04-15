@@ -29,8 +29,12 @@ Page({
   }) {
     const { url } = e.target.dataset;
     const isToProfile = url === '/pages/profile/profile';
-    if(isToProfile && !this.data.userInfo.nickname) return;
-    
+    if(isToProfile && !this.data.userInfo.nickname) return wx.showToast({
+      icon: 'error',
+      title: '请先登录',
+      duration: 2000
+    });
+
     const resolvedUrl = 
       isToProfile
       ? `${url}?${

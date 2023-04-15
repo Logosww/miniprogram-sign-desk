@@ -11,6 +11,13 @@ interface COSOperationData extends COSOperationError {
   VersionId: string;
 };
 
+interface ProgressData {
+  loaded: number;
+  total: number;
+  speed: number;
+  percent: number;
+};
+
 const COS = require('cos-wx-sdk-v5');
 const Bucket = 'signdesk-1308682615';
 const Region = 'ap-shanghai';
@@ -30,13 +37,18 @@ const cos = new COS({
   }
 });
 
-export const uploadFile = (key: string, filePath: string) => {
+export const uploadFile = (
+  key: string,
+  filePath: string,
+  onProgress?: (progressData: ProgressData) => void
+) => {
   return new Promise<COSOperationData>((resolve, reject) => {
     cos.putObject({
       Bucket,
       Region,
       Key: key,
-      FilePath: filePath
+      FilePath: filePath,
+      onProgress
     }, (error: COSOperationError, data: COSOperationData) => {
       if(error) return reject(error);
       return resolve(data);

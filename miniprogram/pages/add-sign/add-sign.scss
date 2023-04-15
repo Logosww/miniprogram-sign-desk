@@ -1,0 +1,36 @@
+/* pages/add-sign/add-sign.wxss */
+.t-upload__wrapper {
+  border-radius: 24rpx !important;
+}
+
+.form-wrapper {
+  background-color: #f6f6f6;
+  width: 100%;
+  height: 100vh;
+
+  .form-item {
+    width: 100%;
+    padding: 30rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+
+    .form-item__title {
+      margin-bottom: 20rpx;
+      display: block;
+    }
+
+    .form-item__bottom {
+      margin-top: 20rpx;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 24rpx;
+      color: #333;
+    }
+  }
+
+  .form-opeartion {
+    padding: 0 60rpx; 
+    margin-top: 80rpx;
+  }
+}

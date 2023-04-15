@@ -1,1 +1,25 @@
 /**index.wxss**/
+.wrapper {
+  box-sizing: border-box;
+  max-height: calc(100vh - 114rpx - var(--linebar-height)) !important;
+  background-color: rgb(254,254,254);
+
+  .skeleton {
+    padding: 40rpx;
+  }
+
+  .content {
+    position: relative;
+    height: calc(100vh - 194rpx - var(--linebar-height));
+    padding: 40rpx 0;
+    .empty {
+      box-sizing: border-box;
+      padding-top: 200rpx;
+      height: 100%;
+    }
+  }
+}
+
+.my-sign-item-wrapper {
+  padding: 0 40rpx;
+}

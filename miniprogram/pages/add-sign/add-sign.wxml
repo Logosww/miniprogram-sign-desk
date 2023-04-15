@@ -1,0 +1,33 @@
+<!--pages/add-sign/add-sign.wxml-->
+<view class="form-wrapper">
+  <view class="form-item">
+    <text class="form-item__title">选择图片</text>
+    <t-upload
+      mediaType="{{['image']}}"
+      max="{{1}}"
+      files="{{fileList}}"
+      grid-config="{{ gridConfig }}"
+      bind:add="handleAdd"
+      bind:remove="handleRemove"
+      bind:click="handleClick"
+    >
+    </t-upload>
+    <view class="form-item__bottom">
+      <t-icon name="location" style="margin-right: 10rpx;" />
+      <text>浙江传媒学院钱塘校区</text>
+    </view>
+  </view>
+  <view class="form-opeartion">
+    <t-button 
+      icon="check"
+      theme="primary"
+      size="large"
+      shape="round"
+      disabled="{{ !isUploaded }}"
+      bindtap="handleConfirm"
+      block
+    >
+      确认新增
+    </t-button>
+  </view>
+</view>

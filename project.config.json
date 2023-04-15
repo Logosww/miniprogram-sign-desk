@@ -6,7 +6,7 @@
   },
   "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
-  "projectname": "ts-sass-demo",
+  "projectname": "sign-desk",
   "setting": {
     "packNpmManually": true,
     "packNpmRelationList": [

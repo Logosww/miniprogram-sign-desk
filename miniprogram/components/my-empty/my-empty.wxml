@@ -1,0 +1,2 @@
+<!--my-empty/my-empty.wxml-->
+<t-empty t-class="empty-cls" t-class-image="t-empty__image" image="{{ typeMap[type].image }}" description="{{ typeMap[type].description }}" />
