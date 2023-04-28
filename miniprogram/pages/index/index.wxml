@@ -19,11 +19,11 @@
     closeBtn
   ></t-image-viewer>
   <t-pull-down-refresh
-    value="{{baseRefresh.value}}"
+    value="{{ baseRefresh.value }}"
     loadingProps="{{loadingProps}}"
     loadingTexts="{{['下拉刷新', '松手刷新', '正在刷新', '刷新完成']}}"
-    bind:refresh="onPullDownRefresh"
-    bind:scroll="onScroll"
+    bind:refresh="handlePullDownRefresh"
+    bind:scrolltolower="handleScrollToLower"
     class="wrapper"
   >
     <view class="skeleton" wx:if="{{ isLoading }}">
@@ -47,6 +47,7 @@
           bind:delete="handleDelete"
           bind:view-image="handleViewImage"
         />
+        <t-loading theme="circular" size="40rpx" text="加载中" class="fetch-more-loading" loading="{{ isFetchingMore }}" />
       </view>
     </view>
   </t-pull-down-refresh>

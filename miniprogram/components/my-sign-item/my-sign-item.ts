@@ -31,6 +31,7 @@ Component({
       ],
       { width: '35%', borderRadius: '8rpx' }
     ],
+    isImageLoaded: false
   },
 
   /**
@@ -42,6 +43,9 @@ Component({
     },
     handleViewImage() {
       this.triggerEvent('view-image', this.properties.item.picUrl);
+    },
+    handleLoaded() {
+      this.setData({ isImageLoaded: true });
     }
   }
 })

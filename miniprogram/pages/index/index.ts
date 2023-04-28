@@ -1,4 +1,5 @@
 // index.ts
+import Message from 'tdesign-miniprogram/message/index';
 import { useGetUserPicList, useDeleteSign } from '../../utils/api';
 
 import type { SignItem } from '../../utils/api';
@@ -15,12 +16,15 @@ Page({
     },
     backTopVisible: false,
     signItems: [] as SignItem[],
+    hasNext: false,
+    currentPage: 0,
     addedItemCount: 0,
     pageStyle: '',
     showConfirm: false,
     toDelItemIndex: 0,
     showImageViewer: false,
-    imageToView: [] as string[]
+    imageToView: [] as string[],
+    isFetchingMore: false
   },
 
   async fetchPagingSignItemsData(page: number, size = 12, offset?: number) {
@@ -31,7 +35,11 @@ Page({
     });
     const { items } = paginnSignItemsData;
     const signItems = this.data.signItems.concat(items);
-    this.setData({ signItems });
+    this.setData({ 
+      signItems,
+      hasNext: paginnSignItemsData.hasNext,
+      currentPage: paginnSignItemsData.currentPage
+    });
   },
 
   toAddSign() {
@@ -61,11 +69,18 @@ Page({
     const { code } = await useDeleteSign(picUrl);
     this.setData({ showConfirm: false });
     if(code) {
-      const { signItems } = this.data;
+      const { signItems, addedItemCount } = this.data;
+      let offset = addedItemCount ? addedItemCount - 1 : addedItemCount;
       signItems.splice(index, 1);
-      this.setData({ signItems });
+      this.setData({ signItems, addedItemCount: offset });
     }
     wx.hideLoading();
+    return Message.success({
+      context: this,
+      offset: [20, 32],
+      duration: 4000,
+      content: '删除成功'
+    });
   },
 
   handleCancelDialog() {
@@ -79,6 +94,23 @@ Page({
 
   handleCloseImageViewer() {
     this.setData({ showImageViewer: false });
+  },
+
+  async handlePullDownRefresh() {
+    this.data.signItems = [];
+    await this.fetchPagingSignItemsData(1);
+    setTimeout(() => this.setData({ isLoading: true, baseRefresh: { value: false } }), 1000);
+    setTimeout(() => this.setData({ isLoading: false }), 1500);
+  },
+
+  async handleScrollToLower() {
+    this.setData({ isFetchingMore: true });
+    if(!this.data.hasNext) return setTimeout(() => {
+      this.setData({ isFetchingMore: false });
+      wx.showToast({ title: '没有更多了', icon: 'none' });
+    }, 1500);
+    await this.fetchPagingSignItemsData(this.data.currentPage++, undefined, this.data.addedItemCount);
+    return this.setData({ isFetchingMore: false });
   },
   
   onLoad() {

@@ -7,5 +7,6 @@
     "t-image-viewer": "tdesign-miniprogram/image-viewer/image-viewer",
     "my-sign-item": "/components/my-sign-item/my-sign-item",
     "my-empty": "/components/my-empty/my-empty"
-  }
+  },
+  "disableScroll": true
 }

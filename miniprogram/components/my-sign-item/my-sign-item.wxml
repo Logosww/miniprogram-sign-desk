@@ -1,26 +1,29 @@
 <!--components/my-sign-item.wxml-->
-<t-skeleton class="my-sign-item" rowCol="{{ skeleton }}" animation="gradient" loading="{{ !item }}">
-  <t-swipe-cell>
-    <view class="my-sign-item-wrapper">
-      <view class="my-sign-item__time">
-        <view class="my-sign-item__bar"></view>
-        <text>{{ item.createTime }}</text>
-      </view>
-      <view class="my-sign-item__images">
-        <t-image class="my-sign-item__image" src="{{ item.picUrl }}" mode="aspectFill" lazy="{{ true }}" bind:tap="handleViewImage">
-          <t-loading slot="loading" theme="circular" size="40rpx" loading />
-        </t-image>
-      </view>
-      <view class="my-sign-item__address">
-        <t-icon name="location" style="margin-right: 10rpx;" />
-        <text>{{ item.address }}</text>
-      </view>
-      <view class="my-sign-item__bottom">
-        <view class="my-sign-item__bottom-inner"></view>
-      </view>
+<t-skeleton class="my-sign-item" rowCol="{{ skeleton }}" animation="gradient" loading="{{ !isImageLoaded }}">
+  <view class="my-sign-item-wrapper">
+    <view class="my-sign-item__time">
+      <view class="my-sign-item__bar"></view>
+      <text>{{ item.createTime }}</text>
     </view>
-    <view slot="right" class="my-sign-item-right-operation" bindtap="handleDelete">
-      <t-icon name="delete" />
+    <view class="my-sign-item__images">
+      <t-image
+        class="my-sign-item__image"
+        src="{{ item.picUrl }}"
+        mode="aspectFill"
+        bind:tap="handleViewImage"
+        bind:load="handleLoaded"
+        lazy
+      >
+        <t-loading slot="loading" theme="circular" size="40rpx" loading />
+      </t-image>
     </view>
-  </t-swipe-cell>
+    <view class="my-sign-item__address">
+      <t-icon name="location" style="margin-right: 10rpx;" />
+      <text>{{ item.address }}</text>
+      <t-icon class="my-sign-item__delete" name="delete" bindtap="handleDelete" />
+    </view>
+    <view class="my-sign-item__bottom">
+      <view class="my-sign-item__bottom-inner"></view>
+    </view>
+  </view>
 </t-skeleton>

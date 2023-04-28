@@ -4,6 +4,8 @@ import { nanoid, uploadFile, useUpdateUserInfo } from '../../utils/index';
 
 import type { UserInfo } from '../../utils/index';
 
+const system = wx.getSystemInfoSync();
+
 Page({
 
   /**
@@ -14,45 +16,56 @@ Page({
   } as UserInfo & { isEdit: boolean },
 
   async editAvatar() {
-    let _this = this;
+    let imagePath: string;
     const { tempFiles } = await wx.chooseMedia({
       count: 1,
       mediaType: ['image'],
       sizeType: ['compressed'],
       camera: 'front'
     });
-    wx.cropImage({
-      src: tempFiles[0].tempFilePath,
-      cropScale: '1:1',
-      async success(res) {
-        wx.showToast({
-          title: '上传中',
-          icon: 'loading'
-        });
-        const { tempFilePath: imagePath } = res;
-        const key = `avatar_images/${nanoid()}.png`;
-        const { statusCode } = await uploadFile(key, imagePath);
-        if(statusCode !== 200) return wx.showToast({
-          title: '上传失败',
-          icon: 'error',
-          duration: 2000
-        });
+    
+    if(system.platform === 'ios' || system.platform === 'android') {
+      imagePath = await new Promise((resolve, reject) => {
+        wx.cropImage({
+          src: tempFiles[0].tempFilePath,
+          cropScale: '1:1',
+          success(res) {
+            const { tempFilePath } = res;
+            resolve(
+              tempFilePath.startsWith('wxfile://')
+              ? tempFilePath
+              : tempFiles[0].tempFilePath
+            );
+          },
+          fail(err) {
+            console.log(err);
+            reject(err);
+          }
+        })
+      });
+    } else imagePath = tempFiles[0].tempFilePath;
 
-        const { data } = await useUpdateUserInfo({ avatar: key });
-        if(!data) return wx.showToast({
-          title: '上传失败',
-          icon: 'error',
-          duration: 2000
-        });;
+    const key = `avatar_images/${nanoid()}.png`;
+    const { statusCode } = await uploadFile(key, imagePath);
+    if(statusCode !== 200) return wx.showToast({
+      title: '上传失败',
+      icon: 'error',
+      duration: 2000
+    });
 
-        _this.setData({ avatar: imagePath });
-        _this.getOpenerEventChannel().emit('onReceiveUserInfo', { avatar: imagePath });
-        wx.showToast({
-          title: '上传成功',
-          icon: 'success',
-          duration: 2000
-        });
-      }
+    const { data } = await useUpdateUserInfo({ avatar: key });
+    if(!data) return wx.showToast({
+      title: '上传失败',
+      icon: 'error',
+      duration: 2000
+    });;
+
+    this.setData({ avatar: imagePath });
+    this.getOpenerEventChannel().emit('onReceiveUserInfo', { avatar: imagePath });
+    wx.showToast({
+      title: '上传成功',
+      icon: 'success',
+      duration: 2000
     });
   },
 

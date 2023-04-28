@@ -5,12 +5,12 @@ dependencies:
     specifier: ^1.4.10
     version: 1.4.10
   tdesign-miniprogram:
-    specifier: ^1.1.1
-    version: 1.1.1
+    specifier: ^1.1.3
+    version: 1.1.3
 
 devDependencies:
   miniprogram-api-typings:
-    specifier: ^3.9.0
+    specifier: ^3.9.1
     version: 3.9.1
 
 packages:
@@ -41,8 +41,8 @@ packages:
     resolution: {integrity: sha512-oyratzOWyuFhBzONp06l0FBPu03ltCd1sRWoy2v38SnAKxtpZ8ySLTSEw//hIsBdocMda7fFZEjOG57L57mcUw==}
     dev: true
 
-  /tdesign-miniprogram@1.1.1:
-    resolution: {integrity: sha512-35RuAfR74Hq3HEsOS3NRHyP9S1vdMI8/JSXgtPNV805KEtD9rHRK3Rn9gD08UqvGyemVOoB1IVzwk63fie4t2A==}
+  /tdesign-miniprogram@1.1.3:
+    resolution: {integrity: sha512-vWbfA7ROKPvcjdpjDxg6M3XI/2I9s0HDTpmuQ4RW0cDQRrWAJGU9iAjxNEAKtE5bnQ6yAKWwQXCabZDyJ+QYhw==}
     dependencies:
       dayjs: 1.11.7
     dev: false

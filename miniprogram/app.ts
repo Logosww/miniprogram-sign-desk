@@ -5,7 +5,7 @@ import Message from 'tdesign-miniprogram/message/index';
 
 App<IAppOption>({
   globalData: {
-    version: '0.0.5',
+    version: '0.0.6',
   },
   login() {
     wx.showToast({ title: '正在登录', icon: 'loading' });
