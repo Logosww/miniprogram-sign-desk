@@ -31,7 +31,7 @@ export interface PagingSignItemsData {
   totalPage: 0;
   hasNext: boolean;
   hasPrevious: boolean;
-  items: SignItem[]
+  records: SignItem[]
 };
 
 export const useLogin = (code: string) => 
@@ -61,3 +61,9 @@ export const useAddSign = (picKey: string, address: string) =>
 
 export const useDeleteSign = (picUrl: string) =>
   del('/pic/del', { picUrl }) as Promise<ResData<boolean | string>>;
+
+export const useBindSign = (signId: number) =>
+  post('/pic/bind', { signId }) as Promise<ResData<null>>;
+
+export const useGetSignItem = (signId: number) =>
+  get('/pic/get', { signId }) as Promise<ResData<SignItem>>;

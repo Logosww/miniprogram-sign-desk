@@ -15,26 +15,21 @@ Page({
     isEdit: false
   } as UserInfo & { isEdit: boolean },
 
-  async editAvatar() {
+  async editAvatar(e: { detail: { avatarUrl: string } }) {
     let imagePath: string;
-    const { tempFiles } = await wx.chooseMedia({
-      count: 1,
-      mediaType: ['image'],
-      sizeType: ['compressed'],
-      camera: 'front'
-    });
+    const { detail: { avatarUrl: tempFilePath } } = e;
     
     if(system.platform === 'ios' || system.platform === 'android') {
       imagePath = await new Promise((resolve, reject) => {
         wx.cropImage({
-          src: tempFiles[0].tempFilePath,
+          src: tempFilePath,
           cropScale: '1:1',
           success(res) {
             const { tempFilePath } = res;
             resolve(
               tempFilePath.startsWith('wxfile://')
               ? tempFilePath
-              : tempFiles[0].tempFilePath
+              : tempFilePath
             );
           },
           fail(err) {
@@ -43,7 +38,7 @@ Page({
           }
         })
       });
-    } else imagePath = tempFiles[0].tempFilePath;
+    } else imagePath = tempFilePath;
 
     const key = `avatar_images/${nanoid()}.png`;
     const { statusCode } = await uploadFile(key, imagePath);

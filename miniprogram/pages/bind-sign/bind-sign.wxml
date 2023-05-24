@@ -1,0 +1,32 @@
+<!--pages/bind-sign/bind-sign.wxml-->
+<view class="bs-container">
+  <t-image shape="round" loading="slot" error="slot" width="220" height="220" src="{{ signItem.picUrl }}" bindtap="handleViewOpen">
+    <t-loading slot="loading" theme="circular" size="40rpx" loading />
+    <t-icon slot="error" size="96rpx" name="image-error" />
+  </t-image>
+  <view class="bs-info">
+    <view class="bs-info-item">
+      <t-icon name="location" /><text>{{ signItem.address }}</text>
+    </view>
+    <view class="bs-info-item">
+      <t-icon name="time" /><text>{{ signItem.createTime }}</text>
+    </view>
+  </view>
+  <t-button theme="primary" icon="check" bindtap="handleBind" size="large">这是我的签名</t-button>
+</view>
+<t-image-viewer
+  deleteBtn="{{ false }}"
+  closeBtn="{{ true }}"
+  showIndex="{{ false }}"
+  visible="{{ viewerVisible }}"
+  images="{{ images }}"
+  bind:close="handleViewerClose"
+/>
+<t-popup visible="{{ popupVisible }}" bind:visible-change="onVisibleChange" placement="bottom" close-btn="{{ false }}" close-on-overlay-click="{{ false }}">
+  <view class="bs-popup">
+    <view class="header">
+      <view class="title">请先登录</view>
+    </view>
+    <t-button t-class="bs-login-btn" icon="logo-wechat" size="large" bindtap="handleLogin">使用微信登录</t-button>
+  </view>
+</t-popup>

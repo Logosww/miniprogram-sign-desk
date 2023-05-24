@@ -6,7 +6,8 @@
     "pages/setting/setting",
     "pages/about/about",
     "pages/bind-phone/bind-phone",
-    "pages/add-sign/add-sign"
+    "pages/add-sign/add-sign",
+    "pages/bind-sign/bind-sign"
   ],
   "window": {
     "backgroundTextStyle": "light",

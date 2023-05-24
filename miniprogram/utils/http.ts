@@ -38,6 +38,7 @@ export const request = (
               context: ctx
             });
             ctx.setData({ isLogin: false });
+            reject();
           }
         },
         fail(e) { reject(e); }

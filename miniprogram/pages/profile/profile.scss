@@ -5,6 +5,12 @@
   width: 128px;
   margin: 20px auto;
 
+  .pf-avatar-btn {
+    height: auto;
+    padding: 0;
+    line-height: unset;
+  }
+
   .pf-avatar__image {
     width: 128px;
     height: 128px;

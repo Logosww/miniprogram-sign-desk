@@ -12,9 +12,12 @@
         mode="aspectFill"
         bind:tap="handleViewImage"
         bind:load="handleLoaded"
+        loading="slot"
+        error="slot"
         lazy
       >
         <t-loading slot="loading" theme="circular" size="40rpx" loading />
+        <t-icon slot="error" size="64rpx" name="image-error" />
       </t-image>
     </view>
     <view class="my-sign-item__address">

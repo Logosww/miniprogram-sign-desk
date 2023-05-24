@@ -1,12 +1,14 @@
 <!--pages/profile/profile.wxml-->
 <t-message id="t-message" />
 <view class="pf-avatar">
-  <t-image class="pf-avatar__image" src="{{ avatar }}" shape="circle" bindtap="editAvatar" />
-  <t-icon class="pf-avatar__icon" name="photo" size="18px" />
+  <t-button variant="text" class="pf-avatar-btn" hover-class="none" open-type="chooseAvatar" bind:chooseavatar="editAvatar">
+    <t-image class="pf-avatar__image" src="{{ avatar }}" shape="circle" />
+    <t-icon class="pf-avatar__icon" name="photo" size="18px" />
+  </t-button>
 </view>
 <t-cell-group title="基础信息">
-  <t-input label="昵称" align="right" model:value="{{ nickname }}" />
-  <t-cell title="手机" note="{{ phone }}" bindtap="toBindPhone" hover arrow />
+  <t-input type="nickname" label="昵称" align="right" model:value="{{ nickname }}" />
+  <!-- <t-cell title="手机" note="{{ phone }}" bindtap="toBindPhone" hover arrow /> -->
   <t-input label="简介" align="right" placeholder="请输入" maxcharacter="{{50}}" model:value="{{ introduction }}" />
 </t-cell-group>
 <view style="padding: 0 60rpx; margin-top: 80rpx;">

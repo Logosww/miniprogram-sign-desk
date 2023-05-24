@@ -22,6 +22,8 @@ const COS = require('cos-wx-sdk-v5');
 const Bucket = 'signdesk-1308682615';
 const Region = 'ap-shanghai';
 
+export const COSBucketBaseUrl = 'https://signdesk-1308682615.cos.ap-shanghai.myqcloud.com';
+
 const cos = new COS({
   SimpleUploadMethod: 'putObject',
   async getAuthorization(_options: any, callback: Function) {

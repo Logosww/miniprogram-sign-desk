@@ -1,0 +1,56 @@
+/* pages/bind-sign/bind-sign.wxss */
+.bs-container {
+  padding: 100rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .t-image {
+    border-radius: 32rpx;
+    margin-bottom: 60rpx;
+  }
+
+  .bs-info {
+    margin-bottom: 50rpx;
+    .bs-info-item {
+      display: flex;
+      align-items: center;
+      font-size: 32rpx;
+      line-height: 50rpx;
+  
+      .t-icon {
+        margin-right: 16rpx;
+      }
+    }
+  }
+}
+
+.bs-popup {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  background: #fff;
+  border-radius: 32rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 116rpx;
+
+    .title {
+      text-align: center;
+      font-weight: 800;
+      font-size: 36rpx;
+    }
+  }
+
+  .bs-login-btn {
+    margin: auto 0;
+    background-color: rgb(26,173,25);
+    color: #fff;
+  }
+}

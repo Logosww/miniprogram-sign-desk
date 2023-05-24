@@ -28,17 +28,17 @@ Page({
   },
 
   async fetchPagingSignItemsData(page: number, size = 12, offset?: number) {
-    const { data: paginnSignItemsData } = await useGetUserPicList({
+    const { data: pagingSignItemsData } = await useGetUserPicList({
       offset: offset ?? this.data.addedItemCount,
       page,
       size,
     });
-    const { items } = paginnSignItemsData;
+    const { records: items } = pagingSignItemsData;
     const signItems = this.data.signItems.concat(items);
     this.setData({ 
       signItems,
-      hasNext: paginnSignItemsData.hasNext,
-      currentPage: paginnSignItemsData.currentPage
+      hasNext: pagingSignItemsData.hasNext,
+      currentPage: pagingSignItemsData.currentPage
     });
   },
 

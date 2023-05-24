@@ -1,6 +1,6 @@
 {
   "name": "miniprogram-sign-desk",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
   "scripts": {},
   "keywords": [],
@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "cos-wx-sdk-v5": "^1.4.10",
-    "tdesign-miniprogram": "^1.1.3"
+    "tdesign-miniprogram": "^1.1.6"
   }
 }
